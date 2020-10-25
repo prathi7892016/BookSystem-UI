@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(function() {
+   $('#submit1').click(function(e) {
+        e.preventDefault();
+        $("#Demo").submit();
+    });
+
+   $('#submit2').click(function(e) {
+        e.preventDefault();
+        $("#Demo").submit();
+    });
+});
+});
+</script>
+
+</head>
+<body>
+<form action="javascript:alert('submitted');" method="post" id="Demo">
+    <label>Price</label>
+    <input type="number" name="name" value=""  required/>
+    <input type="submit" name="submitme" value="Submit" id="submit1" />
+    <p><a href="#" id="submit2">Submit</a></p>
+</form>
+</body>
+</html>
+

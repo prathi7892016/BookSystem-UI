@@ -1,0 +1,228 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript form validation - checking date</title>
+    <link rel='stylesheet' href='form-style.css' type='text/css' />   
+    </head><body onload='document.form1.text1.focus()'>
+      <form name="form1" action="#">
+<p>id    <span class="error"style="color:red">* required field</span></p>
+
+<input id="bookId" type="number" style="color:blue;" required>
+
+<p id="p01"></p>
+
+<script>
+function myFunction() {
+  var message, x;
+  message = document.getElementById("p01");
+  message.innerHTML = "";
+  x = document.getElementById("bookId").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaN(x)) throw "is not a number";
+    x = Number(x);
+    
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+</script>
+<style color:blue;></style>
+<p> title <span class="error"style="color:red">* required field</span></p>
+<input title="bookTitle" type="text" style="color:blue;"required>
+
+<p title="p01"></p>
+
+<script>
+function myFunction() {
+  var message, x;
+  message = document.getElementByName("p01");
+  message.innerHTML = "";
+  x = document.getElementByName("bookTitle").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaN(x)) throw "is not a valid name";
+    x = Number(x);
+    
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementByName("bookTitle").value = "";
+  }
+}
+</script>
+<p>author</p>
+<input author="bookAuthor" type="text">
+
+<p author="p01"></p>
+
+<script>
+function myFunction() {
+  var message, x;
+  message = document.getElementByName("p01");
+  message.innerHTML = "";
+  x = document.getElementByName("bookAuthor").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaName(x)) throw "is not a valid name";
+    x = text(x);
+    
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementByName("bookTitle").value = "";
+  }
+}
+</script>
+<p>price</p>
+<input number="bookPrice" type="number">
+
+<p price="p01"></p>
+
+<script>
+function myFunction() {
+  var message, x;
+  message = document.getElementByName("p01");
+  message.innerHTML = "";
+  x = document.getElementByName("bookTitle").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaName(x)) throw "is not a valid name";
+    x = text(x);
+    
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementByName("bookTitle").value = "";
+  }
+}
+</script>
+<p>genre <span class="error"style="color:red">* required field</span></p>
+<input genre="bookGenre" type="text">
+
+
+<p genre="p01"></p>
+
+<script>
+function myFunction() {
+  var message, x;
+  message = document.getElementByName("p01");
+  message.innerHTML = "";
+  x = document.getElementByName("bookGenre").value;
+  try { 
+    if(x == "")  throw "is empty";
+    if(isNaName(x)) throw "is not a valid name";
+    x = text(x);
+    
+  }
+  catch(err) {
+    message.innerHTML = "Input " + err;
+  }
+  finally {
+    document.getElementByName("bookGenre").value = "";
+  }
+}
+
+
+</script>
+<label for="bookdate">Date:</label>
+  <input type="date" id="bookdate" name="bookdate">
+</form>
+  <input type="submit" value="Submit">
+
+ 
+  
+</form>
+</div>
+
+<script src="ddmmyyyy-validation.js"></script>
+
+ <form>   
+<script>
+  
+function validatedate(inputText)
+  {
+  var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+  // Match the date format through regular expression
+  if(inputText.value.match(dateformat))
+  {
+  document.form1.text1.focus();
+  //Test which seperator is used '/' or '-'
+  var opera1 = inputText.value.split('/');
+  var opera2 = inputText.value.split('-');
+  lopera1 = opera1.length;
+  lopera2 = opera2.length;
+  // Extract the string into month, date and year
+  if (lopera1>1)
+  {
+  var pdate = inputText.value.split('/');
+  }
+  else if (lopera2>1)
+  {
+  var pdate = inputText.value.split('-');
+  }
+  var dd = parseInt(pdate[0]);
+  var mm  = parseInt(pdate[1]);
+  var yy = parseInt(pdate[2]);
+  // Create list of days of a month [assume there is no leap year by default]
+  var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+  if (mm==1 || mm>2)
+  {
+  if (dd>ListofDays[mm-1])
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  }
+  if (mm==2)
+  {
+  var lyear = false;
+  if ( (!(yy % 4) && yy % 100) || !(yy % 400)) 
+  {
+  lyear = true;
+  }
+  if ((lyear==false) && (dd>=29))
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  if ((lyear==true) && (dd>29))
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  }
+  }
+  else
+  {
+  alert("Invalid date format!");
+  document.form1.text1.focus();
+  return false;
+  }
+  }
+</script>
+
+</form>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
